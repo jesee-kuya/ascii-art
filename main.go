@@ -14,9 +14,11 @@ func main() {
 		words = os.Args[1]
 	} else if len(os.Args) == 3 {
 		words = os.Args[2]
+	} else {
+		fmt.Println("Wrong input, check README.md")
 	}
 
-	// If the cword is just a \n print newline and return
+	// If the word is just a \n print newline and return
 	if words == "\\n" {
 		fmt.Println()
 		return
@@ -29,15 +31,16 @@ func main() {
 
 	// Read the file with ascii art handle read error then split it using \n as seperator
 
-	args := os.Args[1]
-	if args != "-t" && args != "-s" && len(os.Args) == 2 {
+	if os.Args[1] != "-t" && os.Args[1] != "-s" && len(os.Args) == 2 {
 		content := ascii.Reader("standard.txt", "\n")
 		ascii.Ascii(content, wordsArr)
-	} else if args == "-s" {
+	} else if os.Args[1] == "-s" && len(os.Args) == 3 {
 		content := ascii.Reader("shadow.txt", "\n")
 		ascii.Ascii(content, wordsArr)
-	} else if args == "-t" {
+	} else if os.Args[1] == "-t" && len(os.Args) == 3 {
 		content := ascii.Reader("thinkertoy.txt", "\r\n")
 		ascii.Ascii(content, wordsArr)
+	} else {
+		fmt.Println("Wrong input, check README.md")
 	}
 }
