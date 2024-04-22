@@ -3,36 +3,41 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	ascii "ascii/ascii"
 )
 
 func main() {
-	file, err := os.ReadFile("standard.txt")
-	if err != nil {
-		panic(err)
+	var words string
+	if len(os.Args) == 2 {
+		words = os.Args[1]
+	} else if len(os.Args) == 3 {
+		words = os.Args[2]
 	}
-	file1, err := os.ReadFile("shadow.txt")
-	if err != nil {
-		panic(err)
-	}
-	file2, err := os.ReadFile("thinkertoy.txt")
-	if err != nil {
-		panic(err)
-	}
-	args := os.Args[1]
-	if args == "\\n" {
+
+	// If the word is just a \n print newline and return
+	if words == "\\n" {
 		fmt.Println()
+		return
+	} else if len(words) == 0 {
 		return
 	}
 
+	// Check for an empty strng and add a \n or split using \n as seperater
+	wordsArr := strings.Split(words, "\\n")
+
+	// Read the file with ascii art handle read error then split it using \n as seperator
+
+	args := os.Args[1]
 	if args != "-t" && args != "-s" && len(os.Args) == 2 {
-		ascii.Standard(file)
+		content := ascii.Reader("standard.txt", "\n")
+		ascii.Ascii(content, wordsArr)
 	} else if args == "-s" {
-		ascii.Shadow(file1)
+		content := ascii.Reader("shadow.txt", "\n")
+		ascii.Ascii(content, wordsArr)
 	} else if args == "-t" {
-		ascii.Thinkertoy(file2)
-	} else {
-		fmt.Println("Error, Incorrect Input")
+		content := ascii.Reader("thinkertoy.txt", "\r\n")
+		ascii.Ascii(content, wordsArr)
 	}
 }
