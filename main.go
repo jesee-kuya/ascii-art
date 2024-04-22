@@ -16,7 +16,7 @@ func main() {
 		words = os.Args[2]
 	}
 
-	// If the word is just a \n print newline and return
+	// If the cword is just a \n print newline and return
 	if words == "\\n" {
 		fmt.Println()
 		return
