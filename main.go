@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	ascii "ascii/ascii"
@@ -20,12 +21,18 @@ func main() {
 		panic(err)
 	}
 	args := os.Args[1]
+	if args == "\\n" {
+		fmt.Println()
+		return
+	}
 
-	if args != "-t" && args != "-s" {
+	if args != "-t" && args != "-s" && len(os.Args) == 2 {
 		ascii.Standard(file)
 	} else if args == "-s" {
 		ascii.Shadow(file1)
 	} else if args == "-t" {
 		ascii.Thinkertoy(file2)
+	} else {
+		fmt.Println("Error, Incorrect Input")
 	}
 }
