@@ -6,20 +6,16 @@ import (
 )
 
 func Slice(word string) []string {
-	if strings.Contains(word, "\\t") {
-		re := regexp.MustCompile(`\\t`)
-		word = re.ReplaceAllString(word, "    $0")
-		word = re.ReplaceAllString(word, "")
-		wordArr := strings.Split(word, "\\n")
-		return wordArr
-	} else if strings.Contains(word, "\\v") {
-		re := regexp.MustCompile(`\\v`)
-		word = re.ReplaceAllString(word, "$0\\n    ")
-		word = re.ReplaceAllString(word, "")
-		wordArr := strings.Split(word, "\\n")
-		return wordArr
-	} else {
-		wordArr := strings.Split(word, "\\n")
-		return wordArr
-	}
+	re := regexp.MustCompile(`\\t`)
+	word = re.ReplaceAllString(word, "    $0")
+	word = re.ReplaceAllString(word, "")
+
+	re1 := regexp.MustCompile(`\\v|\\f`)
+	word = re1.ReplaceAllString(word, "$0\\n    ")
+	word = re1.ReplaceAllString(word, "")
+
+	re2 := regexp.MustCompile(`(.*?)(\\r)`)
+	word = re2.ReplaceAllString(word, "")
+	wordArr := strings.Split(word, "\\n")
+	return wordArr
 }
