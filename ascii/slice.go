@@ -16,6 +16,11 @@ func Slice(word string) []string {
 
 	re2 := regexp.MustCompile(`(.*?)(\\r)`)
 	word = re2.ReplaceAllString(word, "")
+
+	re3 := regexp.MustCompile(`.\\b|DEL.`)
+	word = re3.ReplaceAllString(word, "")
+
+
 	wordArr := strings.Split(word, "\\n")
 	return wordArr
 }
