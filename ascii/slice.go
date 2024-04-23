@@ -12,6 +12,12 @@ func Slice(word string) []string {
 		word = re.ReplaceAllString(word, "")
 		wordArr := strings.Split(word, "\\n")
 		return wordArr
+	} else if strings.Contains(word, "\\v") {
+		re := regexp.MustCompile(`\\v`)
+		word = re.ReplaceAllString(word, "$0\\n    ")
+		word = re.ReplaceAllString(word, "")
+		wordArr := strings.Split(word, "\\n")
+		return wordArr
 	} else {
 		wordArr := strings.Split(word, "\\n")
 		return wordArr

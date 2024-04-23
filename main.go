@@ -21,7 +21,6 @@ func main() {
 		ascii.Ascii(content, wordsArr)
 	} else {
 		content := ascii.Reader("standard.txt", "\n")
-
 		word := ascii.Arrange(words[1:])
 		wordsArr := ascii.Slice(word)
 		ascii.Ascii(content, wordsArr)
