@@ -11,8 +11,10 @@ The program mainly takes user input from the terminal and then prints the output
 <P>the user must initate a terminal in the ascii-art directory.<p>
 <p>the command to run is " go run .{this is main program, you can use main.go instead of ' . '}     -t|-s   {optional but for different bannertext}  {userinput in quotes}<p>
 <p>one has an option case of using "flags" with two optional flags: -t for the thintertoy style and -s for the shadow style. In case the flags are not used, then the standard style is displayed. <p>
-<P>the user input under in the command is the input the user which one wishes to be converted to ascii art. The input must be in quotes and the programs takes ONLY ONE INPUT FIELD IN QUOTES basically something like this, "this is my input" which is only one field. When the user adds another field the program will not work with it<p>
+<P>The user can put the input in double quotes or without double quotes, In the case of without double quotes, the user must escape all bash special characters <p>
 <p>To display your text separately, put the character "\n" like so, "Hello\nthere". THe program will display hello and there on separate line fields. <p>
+<p>To edit your text to display in tabs, use "\t", vertical tabs use "\v", form feed use "\f", backspace use "\b", carriage ret use "\r" and Delete use "DEL"<p>
+<P>All edit characters should be escaped in cases where no quotes is used eg \\t<P>
 <p>If the command is run with only one input that does not have quotes, the program will execute it, otherwise it will print an error.<p>
 
 ## Credit
