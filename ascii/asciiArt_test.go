@@ -8,6 +8,8 @@ import (
 	"ascii/ascii"
 )
 
+
+
 func TestAscii(t *testing.T) {
 	old := os.Stdout
 	r, w, _ := os.Pipe()
