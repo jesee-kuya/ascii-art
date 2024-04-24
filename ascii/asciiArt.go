@@ -16,7 +16,7 @@ func Ascii(fileArr []string, wordsArr []string) {
 				fmt.Println()
 			}
 		} else {
-			fmt.Println()
+			return
 		}
 	}
 }
