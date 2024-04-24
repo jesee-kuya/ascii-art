@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 )
-
+ // Read the banner files and store them as slices of string
 func Reader(filename string, sepp string) []string {
 	file, err := os.ReadFile(filename)
 	if err != nil {

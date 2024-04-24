@@ -5,7 +5,7 @@ import (
 )
 
 func Ascii(fileArr []string, wordsArr []string) {
-	// Get the runes of wordArr
+	// Get the runes of wordArr and print the ascii-art
 	for _, val := range wordsArr {
 		if val != "" {
 			for i := 1; i <= 8; i++ {
@@ -16,7 +16,7 @@ func Ascii(fileArr []string, wordsArr []string) {
 				fmt.Println()
 			}
 		} else {
-			return
+			fmt.Println()
 		}
 	}
 }

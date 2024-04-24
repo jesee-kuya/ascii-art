@@ -2,7 +2,7 @@ package ascii
 
 import "fmt"
 
-
+// check for non ascii character and prints an error
 func CheckAscii(word []string) bool {
 	for _, v := range word {
 		for _, val := range v {
