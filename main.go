@@ -25,6 +25,15 @@ func main() {
 	} else if os.Args[1] == "-s" && os.Args[2] == "" && len(os.Args) == 3 {
 		return
 	}
+	if os.Args[1] == "\\n" && len(os.Args) == 2 {
+		fmt.Println()
+		return
+	} else if os.Args[1] == "-t" && os.Args[2] == "\\n" && len(os.Args) == 3 {
+		fmt.Println()
+		return
+	} else if os.Args[1] == "-s" && os.Args[2] == "\\n" && len(os.Args) == 3 {
+		return
+	}
 
 	// sort flags with banner files
 	if words[1] == "-t" {
