@@ -32,6 +32,7 @@ func main() {
 		fmt.Println()
 		return
 	} else if os.Args[1] == "-s" && os.Args[2] == "\\n" && len(os.Args) == 3 {
+		fmt.Println()
 		return
 	}
 
