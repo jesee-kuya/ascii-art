@@ -20,7 +20,7 @@ func Slice(word string) []string {
 	// Delete a character before or after
 	re3 := regexp.MustCompile(`.\\b|DEL.`)
 	word = re3.ReplaceAllString(word, "")
-
+	// Handle new line, both \n and \\n
 	re4 := regexp.MustCompile(`\\n`)
 	word = re4.ReplaceAllLiteralString(word, "\n")
 	wordArr := strings.Split(word, "\n")
