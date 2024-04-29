@@ -40,6 +40,7 @@ func main() {
 	if words[1] == "-t" {
 		content, error := ascii.Reader("thinkertoy.txt", "\r\n")
 		if error != nil {
+			fmt.Println(error)
 			return
 		}
 		word := ascii.Arrange(words[2:])
@@ -51,6 +52,7 @@ func main() {
 	} else if words[1] == "-s" {
 		content, error := ascii.Reader("shadow.txt", "\n")
 		if error != nil {
+			fmt.Println(error)
 			return
 		}
 		word := ascii.Arrange(words[2:])
@@ -62,6 +64,7 @@ func main() {
 	} else {
 		content, error := ascii.Reader("standard.txt", "\n")
 		if error != nil {
+			fmt.Println(error)
 			return
 		}
 		word := ascii.Arrange(words[1:])
