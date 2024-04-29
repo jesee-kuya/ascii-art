@@ -9,30 +9,7 @@ import (
 
 func main() {
 	words := os.Args
-	// check if there is no input passed and flag without input
-	if len(words) <= 1 {
-		fmt.Println("Error, No arguments passed")
-		return
-	} else if (os.Args[1] == "-t" || os.Args[1] == "-s") && len(words) <= 2 {
-		fmt.Println("Error, No arguments passed")
-		return
-	}
-	// check for empty inputs
-	if os.Args[1] == "" && len(os.Args) == 2 {
-		return
-	} else if os.Args[1] == "-t" && os.Args[2] == "" && len(os.Args) == 3 {
-		return
-	} else if os.Args[1] == "-s" && os.Args[2] == "" && len(os.Args) == 3 {
-		return
-	}
-	if os.Args[1] == "\\n" && len(os.Args) == 2 {
-		fmt.Println()
-		return
-	} else if os.Args[1] == "-t" && os.Args[2] == "\\n" && len(os.Args) == 3 {
-		fmt.Println()
-		return
-	} else if os.Args[1] == "-s" && os.Args[2] == "\\n" && len(os.Args) == 3 {
-		fmt.Println()
+	if !ascii.NoError(words) {
 		return
 	}
 
