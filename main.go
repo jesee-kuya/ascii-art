@@ -38,7 +38,10 @@ func main() {
 
 	// sort flags with banner files
 	if words[1] == "-t" {
-		content := ascii.Reader("thinkertoy.txt", "\r\n")
+		content, error := ascii.Reader("thinkertoy.txt", "\r\n")
+		if error != nil {
+			return
+		}
 		word := ascii.Arrange(words[2:])
 		wordsArr := ascii.Slice(word)
 		if !ascii.CheckAscii(wordsArr) {
@@ -46,7 +49,10 @@ func main() {
 		}
 		ascii.Ascii(content, wordsArr)
 	} else if words[1] == "-s" {
-		content := ascii.Reader("shadow.txt", "\n")
+		content, error := ascii.Reader("shadow.txt", "\n")
+		if error != nil {
+			return
+		}
 		word := ascii.Arrange(words[2:])
 		wordsArr := ascii.Slice(word)
 		if !ascii.CheckAscii(wordsArr) {
@@ -54,7 +60,10 @@ func main() {
 		}
 		ascii.Ascii(content, wordsArr)
 	} else {
-		content := ascii.Reader("standard.txt", "\n")
+		content, error := ascii.Reader("standard.txt", "\n")
+		if error != nil {
+			return
+		}
 		word := ascii.Arrange(words[1:])
 		wordsArr := ascii.Slice(word)
 		if !ascii.CheckAscii(wordsArr) {

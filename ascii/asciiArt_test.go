@@ -8,14 +8,12 @@ import (
 	"ascii/ascii"
 )
 
-
-
 func TestAscii(t *testing.T) {
 	old := os.Stdout
 	r, w, _ := os.Pipe()
 	os.Stdout = w
 
-	content := ascii.Reader("/home/jkuya/ascii-art/standard.txt", "\n")
+	content, _ := ascii.Reader("/home/jkuya/ascii-art/standard.txt", "\n")
 	input := []string{"Hello"}
 
 	ascii.Ascii(content, input)
