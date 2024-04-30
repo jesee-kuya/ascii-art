@@ -1,6 +1,6 @@
 package ascii
 
-// Convert the input to one string
+// Arrange converts the input to one string
 func Arrange(words []string) string {
 	word := ""
 	for i, v := range words {

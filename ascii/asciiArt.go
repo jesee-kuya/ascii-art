@@ -22,7 +22,7 @@ func Ascii(fileArr []string, wordsArr []string) {
 				fmt.Println()
 			}
 		} else {
-			// If the word is empty, print a new line
+			// If val is empty, print a new line
 			fmt.Println()
 		}
 	}
